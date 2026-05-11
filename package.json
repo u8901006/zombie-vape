@@ -1,0 +1,15 @@
+{
+  "name": "zombie-vape-digest",
+  "version": "1.0.0",
+  "description": "Zombie Vape / Etomidate-Laced E-Cigarette Daily Research Digest",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "fetch": "node scripts/fetch_papers.js",
+    "report": "node scripts/generate_report.js",
+    "index": "node scripts/generate_index.js"
+  },
+  "dependencies": {}
+}
