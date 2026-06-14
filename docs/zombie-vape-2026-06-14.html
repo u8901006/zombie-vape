@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zombie Vape Digest &middot; Etomidate 電子煙研究文獻日報 &middot; 2026年6月14日</title>
+<meta name="description" content="2026年6月14日 Etomidate-laced e-cigarette 研究文獻日報，由 AI 自動彙整 PubMed 最新論文"/>
+<style>
+  :root { --bg: #f6f1e8; --surface: #fffaf2; --line: #d8c5ab; --text: #2b2118; --muted: #766453; --accent: #8c4f2b; --accent-soft: #ead2bf; --card-bg: color-mix(in srgb, var(--surface) 92%, white); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: radial-gradient(circle at top, #fff6ea 0, var(--bg) 55%, #ead8c6 100%); color: var(--text); font-family: "Noto Sans TC", "PingFang TC", "Helvetica Neue", Arial, sans-serif; min-height: 100vh; overflow-x: hidden; }
+  .container { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; padding: 60px 32px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 52px; animation: fadeDown 0.6s ease both; }
+  .logo { width: 48px; height: 48px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(140,79,43,0.25); }
+  .header-text h1 { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .header-meta { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; }
+  .badge-date { background: var(--accent-soft); border: 1px solid var(--line); color: var(--accent); }
+  .badge-count { background: rgba(140,79,43,0.06); border: 1px solid var(--line); color: var(--muted); }
+  .badge-source { background: transparent; color: var(--muted); font-size: 11px; padding: 0 4px; }
+  .summary-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 28px 32px; margin-bottom: 32px; box-shadow: 0 20px 60px rgba(61,36,15,0.06); animation: fadeUp 0.5s ease 0.1s both; }
+  .summary-card h2 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; color: var(--accent); margin-bottom: 16px; }
+  .summary-text { font-size: 15px; line-height: 1.8; color: var(--text); }
+  .section { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+  .section-title { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .section-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: var(--accent-soft); }
+  .news-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; padding: 22px 26px; margin-bottom: 12px; box-shadow: 0 8px 30px rgba(61,36,15,0.04); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .news-card.featured { border-left: 3px solid var(--accent); }
+  .news-card.featured:hover { border-color: var(--accent); }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .rank-badge { background: var(--accent); color: #fff7f0; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+  .emoji-icon { font-size: 18px; }
+  .card-header-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .emoji-sm { font-size: 14px; }
+  .news-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.5; }
+  .journal-source { font-size: 12px; color: var(--accent); margin-bottom: 8px; opacity: 0.8; }
+  .news-card p { font-size: 13.5px; line-height: 1.75; color: var(--muted); }
+  .card-footer { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .tag { padding: 2px 9px; background: var(--accent-soft); border-radius: 999px; font-size: 11px; color: var(--accent); }
+  .news-card a { font-size: 12px; color: var(--accent); text-decoration: none; opacity: 0.7; margin-left: auto; }
+  .news-card a:hover { opacity: 1; }
+  .utility-high { color: #5a7a3a; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(90,122,58,0.1); border-radius: 4px; }
+  .utility-mid { color: #9f7a2e; font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(159,122,46,0.1); border-radius: 4px; }
+  .utility-low { color: var(--muted); font-size: 11px; font-weight: 600; padding: 2px 8px; background: rgba(118,100,83,0.08); border-radius: 4px; }
+  .utility-sm { font-size: 10px; }
+  .pico-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; padding: 12px; background: rgba(255,253,249,0.8); border-radius: 14px; border: 1px solid var(--line); }
+  .pico-item { display: flex; gap: 8px; align-items: baseline; }
+  .pico-label { font-size: 10px; font-weight: 700; color: #fff7f0; background: var(--accent); padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+  .pico-text { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .keywords-section { margin-bottom: 36px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .keyword { padding: 5px 14px; background: var(--accent-soft); border: 1px solid var(--line); border-radius: 20px; font-size: 12px; color: var(--accent); cursor: default; transition: background 0.2s; }
+  .keyword:hover { background: rgba(140,79,43,0.18); }
+  .topic-section { margin-bottom: 36px; }
+  .topic-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .topic-name { font-size: 13px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .topic-bar-bg { flex: 1; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+  .topic-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #c47a4a); border-radius: 4px; transition: width 0.6s ease; }
+  .topic-count { font-size: 12px; color: var(--accent); width: 24px; }
+  .links-banner { margin-top: 48px; animation: fadeUp 0.5s ease 0.3s both; }
+  .links-grid { display: flex; flex-direction: column; gap: 10px; }
+  .link-card { display: flex; align-items: center; gap: 14px; padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 24px; text-decoration: none; color: var(--text); transition: all 0.2s; box-shadow: 0 8px 30px rgba(61,36,15,0.04); }
+  .link-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(61,36,15,0.08); }
+  .link-icon { font-size: 28px; flex-shrink: 0; }
+  .link-name { font-size: 15px; font-weight: 700; color: var(--text); flex: 1; }
+  .link-desc { font-size: 12px; color: var(--muted); }
+  .link-arrow { font-size: 18px; color: var(--accent); font-weight: 700; }
+  footer { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 11.5px; color: var(--muted); display: flex; justify-content: space-between; animation: fadeUp 0.5s ease 0.5s both; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 600px) { .container { padding: 36px 18px 60px; } .summary-card, .news-card { padding: 20px 18px; } .pico-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 6px; text-align: center; } .topic-name { width: 80px; font-size: 11px; } .links-grid { gap: 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="logo">☠️</div>
+    <div class="header-text">
+      <h1>Zombie Vape Digest &middot; Etomidate 電子煙研究文獻日報</h1>
+      <div class="header-meta">
+        <span class="badge badge-date">📅 2026年6月14日</span>
+        <span class="badge badge-count">📊 3 篇文獻</span>
+        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="summary-card">
+    <h2>📋 今日文獻趨勢</h2>
+    <p class="summary-text">今日文獻顯示「喪屍煙」問題已從區域公共衛生危機升級為全球管制挑戰，研究焦點涵蓋了新興類似物（丙氧酯）的成癮與神經毒理機制，以及結合 AI 的快速現場偵測技術，顯示該領域正朝向「機制釐清、技術升級、政策呼籲」三軌並行發展。</p>
+  </div>
+
+  <div class="section"><div class="section-title"><span class="section-icon">⭐</span>今日精選 TOP Picks</div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#1</span>
+            <span class="emoji-icon">🧠</span>
+            <span class="utility-high">高實用性</span>
+          </div>
+          <h3>丙氧酯透過破壞血腦屏障與活化 GABAergic 路徑引發神經毒性與成癮潛力的機制研究</h3>
+          <p class="journal-source">Toxicology &middot; Mechanistic study on propoxate-induced neurotoxicity and addictive potential via blood-brain barrier disruption and GABAergic pathway activation.</p>
+          <p>透過小鼠實驗首次揭露依託咪酯類似物「丙氧酯」會破壞血腦屏障並直接結合 GABA_A 受體，從分子層級證實其導致神經毒性與成癮的雙重機制。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">8週齡雄性 C57BL/6J 小鼠</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">3 mg/kg 與 5 mg/kg 劑量的丙氧酯（PPO）暴露</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">對照組（未給予 PPO）</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">產生條件性位置偏好（成癮）、降低活動力、血腦屏障通透性增加、GABA_A 受體表現上調及海馬迴神經細胞凋亡</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">臨床毒理學</span><span class="tag">成癮醫學</span><span class="tag">神經學</span><span class="tag">藥理學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/41962649/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#2</span>
+            <span class="emoji-icon">🌍</span>
+            <span class="utility-mid">中實用性</span>
+          </div>
+          <h3>依託咪酯摻假電子煙：碎片化的全球藥物管制與公共衛生風險</h3>
+          <p class="journal-source">Drug and alcohol review &middot; Etomidate-Adulterated Vaping: Fragmented Global Drug Control and Public Health Risks.</p>
+          <p>本研究指出含依託咪酯電子煙在全球擴散，呼籲透過類似物廣譜立法、強化法醫基礎建設與跨國情報共享來彌合各國管制的落差。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">受含依託咪酯電子煙影響的各國管轄區</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">廣譜類似物立法、區域法醫基礎建設投資、即時資訊共享平台（建議策略）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">現行碎片化之刑罰控制與藥政控制模式</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">縮小監管漏洞、加強監測與起訴、減少非法製造與網路商業化</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">公共政策</span><span class="tag">法醫毒理學</span><span class="tag">區域公共衛生</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42281260/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div>
+        <div class="news-card featured">
+          <div class="card-header">
+            <span class="rank-badge">#3</span>
+            <span class="emoji-icon">🔬</span>
+            <span class="utility-low">低實用性</span>
+          </div>
+          <h3>結合可解釋深度學習與表面增強拉曼光譜同時檢測電子煙中的尼古丁與依託咪酯異構物</h3>
+          <p class="journal-source">Analytica chimica acta &middot; Explainable deep learning combined with SERS for simultaneous detection of nicotine and etomidate isomers in E-cigarettes.</p>
+          <p>結合 SERS 與可解釋深度學習模型，開發出能快速且高準確度（97.8%）同時鑑定電子煙中尼古丁與多種依託咪酯異構物的現場篩檢新方法。</p>
+          
+            <div class="pico-grid">
+              <div class="pico-item"><span class="pico-label">P</span><span class="pico-text">市售電子煙液體</span></div>
+              <div class="pico-item"><span class="pico-label">I</span><span class="pico-text">結合液液萃取前處理之 SERS 與可解釋深度學習模型（Grad-CAM）</span></div>
+              <div class="pico-item"><span class="pico-label">C</span><span class="pico-text">傳統檢測方法</span></div>
+              <div class="pico-item"><span class="pico-label">O</span><span class="pico-text">達成尼古丁與四種依託咪酯異構物的微量同時檢測，分類識別準確率達 97.8%</span></div>
+            </div>
+          <div class="card-footer">
+            <span class="tag">分析毒理學</span><span class="tag">法醫毒理學</span>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42067301/" target="_blank">閱讀原文 &rarr;</a>
+          </div>
+        </div></div>
+
+  
+
+  <div class="topic-section section"><div class="section-title"><span class="section-icon">📊</span>主題分佈</div>
+            <div class="topic-row">
+              <span class="topic-name">臨床毒理學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">成癮醫學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">神經學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">藥理學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">公共政策</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">區域公共衛生</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">1</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">法醫毒理學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:100%"></div></div>
+              <span class="topic-count">2</span>
+            </div>
+            <div class="topic-row">
+              <span class="topic-name">分析毒理學</span>
+              <div class="topic-bar-bg"><div class="topic-bar" style="width:50%"></div></div>
+              <span class="topic-count">1</span>
+            </div></div>
+
+  <div class="keywords-section section"><div class="section-title"><span class="section-icon">🏷️</span>關鍵字</div><div class="keywords"><span class="keyword">依託咪酯</span><span class="keyword">喪屍煙</span><span class="keyword">丙氧酯</span><span class="keyword">血腦屏障</span><span class="keyword">GABA_A受體</span><span class="keyword">表面增強拉曼光譜</span><span class="keyword">類似物管制</span></div></div>
+
+  <div class="links-banner">
+    <div class="links-grid">
+      <a href="https://www.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">🏥</span>
+        <div>
+          <div class="link-name">李政洋身心診所首頁</div>
+          <div class="link-desc">專業身心科醫療服務</div>
+        </div>
+        <span class="link-arrow">&rarr;</span>
+      </a>
+      <a href="https://blog.leepsyclinic.com/" class="link-card" target="_blank">
+        <span class="link-icon">📰</span>
+        <div>
+          <div class="link-name">訂閱電子報</div>
+          <div class="link-desc">接收最新身心健康資訊</div>
+        </div>
+        <span class="link-arrow">&rarr;</span>
+      </a>
+      <a href="https://buymeacoffee.com/CYlee" class="link-card" target="_blank">
+        <span class="link-icon">☕</span>
+        <div>
+          <div class="link-name">Buy Me a Coffee</div>
+          <div class="link-desc">支持本研究日報持續運作</div>
+        </div>
+        <span class="link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <span>資料來源：PubMed &middot; 分析模型：glm-5-turbo</span>
+    <span><a href="https://github.com/u8901006/zombie-vape">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>
