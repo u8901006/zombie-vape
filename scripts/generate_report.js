@@ -7,13 +7,10 @@ import { execSync } from "child_process";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 
-const API_BASE =
-  process.env.ZHIPU_API_BASE ||
-  "https://open.bigmodel.cn/api/coding/paas/v4";
+const API_BASE = "https://integrate.api.nvidia.com/v1";
 const MODELS = [
-  process.env.ZHIPU_MODEL || "glm-5-turbo",
-  "glm-4.7",
-  "glm-4.7-flash",
+  "nvidia/nemotron-3-super-120b-a12b",
+  "nvidia/nemotron-3-nano-30b-a3b",
 ];
 
 const SYSTEM_PROMPT = `你是成癮醫學、毒理學、公共衛生與急診醫學領域的資深研究員與科學傳播者。
@@ -35,7 +32,7 @@ function parseArgs() {
   const opts = {
     input: resolve(ROOT, "papers.json"),
     output: "",
-    apiKey: process.env.ZHIPU_API_KEY || "",
+    apiKey: process.env.NVIDIA_API_KEY || "",
   };
   for (let i = 0; i < args.length; i++) {
     if (args[i] === "--input" && args[i + 1]) {
@@ -85,7 +82,7 @@ function safeParseJSON(text) {
   }
 }
 
-function callZhipuAPI(apiKey, papersData) {
+function callNvidiaAPI(apiKey, papersData) {
   const dateStr = papersData.date || new Date().toISOString().split("T")[0];
   const paperCount = papersData.count || 0;
   const papersText = JSON.stringify(papersData.papers || [], null, 2);
@@ -155,9 +152,11 @@ ${papersText}
             { role: "system", content: SYSTEM_PROMPT },
             { role: "user", content: prompt },
           ],
-          temperature: 0.3,
-          top_p: 0.9,
-          max_tokens: 50000,
+          temperature: 1.0,
+          top_p: 0.95,
+          max_tokens: 16384,
+          stream: false,
+          chat_template_kwargs: { enable_thinking: false },
         });
 
         const tmpReq = resolve(ROOT, `_api_req_${Date.now()}.json`);
@@ -431,7 +430,7 @@ function generateHTML(analysis) {
       <div class="header-meta">
         <span class="badge badge-date">\uD83D\uDCC5 ${dateDisplay}</span>
         <span class="badge badge-count">\uD83D\uDCCA ${totalCount} 篇文獻</span>
-        <span class="badge badge-source">Powered by PubMed + Zhipu AI</span>
+        <span class="badge badge-source">Powered by PubMed + NVIDIA AI</span>
       </div>
     </div>
   </header>
@@ -491,7 +490,7 @@ function main() {
   const opts = parseArgs();
   if (!opts.apiKey) {
     console.error(
-      "[ERROR] No API key. Set ZHIPU_API_KEY env var or use --api-key"
+      "[ERROR] No API key. Set NVIDIA_API_KEY env var or use --api-key"
     );
     process.exit(1);
   }
@@ -522,7 +521,7 @@ function main() {
       topic_distribution: {},
     };
   } else {
-    analysis = callZhipuAPI(opts.apiKey, papersData);
+    analysis = callNvidiaAPI(opts.apiKey, papersData);
     if (!analysis) {
       console.error("[ERROR] Analysis failed, cannot generate report");
       process.exit(1);

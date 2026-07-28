@@ -87,7 +87,7 @@ const html = `<!DOCTYPE html>
     </a>
   </div>
   <footer>
-    <p>Powered by PubMed + Zhipu AI &middot; <a href="https://github.com/u8901006/zombie-vape">GitHub</a></p>
+    <p>Powered by PubMed + NVIDIA AI &middot; <a href="https://github.com/u8901006/zombie-vape">GitHub</a></p>
   </footer>
 </div>
 </body>
